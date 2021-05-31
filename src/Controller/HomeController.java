@@ -26,7 +26,6 @@ public class HomeController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println(e.getSource().toString());
         if (e.getSource() == this.homeView.getClientButton()) {
             new ConsultClient((Window) this.homeView.getWindow());
         }

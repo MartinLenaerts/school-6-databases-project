@@ -2,67 +2,75 @@ package Model;
 
 public class Adresse {
 
-	private int ID_adresse;
-	private String rue;
-	private String ville;
-	private String code_postal;
-	private Personne[] personnes;
-	private Agence[] agences;
+    private int ID_adresse;
+    private String rue;
+    private String ville;
+    private int code_postal;
+    private Personne[] personnes;
+    private Agence[] agences;
 
-	public Adresse(int ID_adresse, String rue, String ville, String code_postal, Personne[] personnes, Agence[] agences) {
-		this.ID_adresse = ID_adresse;
-		this.rue = rue;
-		this.ville = ville;
-		this.code_postal = code_postal;
-		this.personnes = personnes;
-		this.agences = agences;
-	}
+    public Adresse(int ID_adresse, String rue, String ville, int code_postal) {
+        this.ID_adresse = ID_adresse;
+        this.rue = rue;
+        this.ville = ville;
+        this.code_postal = code_postal;
+    }
 
-	public int getID_adresse() {
-		return ID_adresse;
-	}
 
-	public void setID_adresse(int ID_adresse) {
-		this.ID_adresse = ID_adresse;
-	}
+    public Adresse(int ID_adresse, String rue, String ville, int code_postal, Personne[] personnes, Agence[] agences) {
+        this.ID_adresse = ID_adresse;
+        this.rue = rue;
+        this.ville = ville;
+        this.code_postal = code_postal;
+        this.personnes = personnes;
+        this.agences = agences;
+    }
 
-	public String getRue() {
-		return rue;
-	}
+    public int getID_adresse() {
+        return ID_adresse;
+    }
 
-	public void setRue(String rue) {
-		this.rue = rue;
-	}
+    public void setID_adresse(int ID_adresse) {
+        this.ID_adresse = ID_adresse;
+    }
 
-	public String getVille() {
-		return ville;
-	}
+    public String getRue() {
+        return rue;
+    }
 
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
+    public void setRue(String rue) {
+        this.rue = rue;
+    }
 
-	public String getCode_postal() {
-		return code_postal;
-	}
+    public String getVille() {
+        return ville;
+    }
 
-	public void setCode_postal(String code_postal) {
-		this.code_postal = code_postal;
-	}
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
 
-	public Personne[] getPersonnes() {
-		return personnes;
-	}
+    public int getCode_postal() {
+        return code_postal;
+    }
 
-	public void setPersonnes(Personne[] personnes) {
-		this.personnes = personnes;
-	}
+    public void setCode_postal(int code_postal) {
+        this.code_postal = code_postal;
+    }
 
-	public Agence[] getAgences() {
-		return agences;
-	}
+    public Personne[] getPersonnes() {
+        return personnes;
+    }
 
-	public void setAgences(Agence[] agences) {
-		this.agences = agences;
-	}
+    public void setPersonnes(Personne[] personnes) {
+        this.personnes = personnes;
+    }
+
+    public Agence[] getAgences() {
+        return agences;
+    }
+
+    public void setAgences(Agence[] agences) {
+        this.agences = agences;
+    }
 }
