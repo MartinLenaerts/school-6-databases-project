@@ -161,13 +161,11 @@ public class Client extends Personne implements BddModel {
     }
 
 
-    @Override
-    public ArrayList<Object> getAll() {
-
+    public static ArrayList<Object> getAll() {
         try {
             ArrayList<Object> clients = new ArrayList<Object>();
             String query = "SELECT *  FROM client c  , adresse a WHERE c.idAdresse = a.idAdresse ";
-            PreparedStatement state = this.connection.prepareStatement(query,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_UPDATABLE);
+            PreparedStatement state = SingletonConnection.getInstance().prepareStatement(query,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_UPDATABLE);
             ResultSet result = state.executeQuery();
             while (result.next()) {
                 clients.add(new Client(

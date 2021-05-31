@@ -13,6 +13,8 @@ public interface BddModel {
 
     boolean update();
 
-    ArrayList<Object> getAll();
+    static ArrayList<Object> getAll(){
+        return new  ArrayList<Object>();
+    }
 
 }

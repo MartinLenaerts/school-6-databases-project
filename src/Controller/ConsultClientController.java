@@ -17,7 +17,6 @@ public class ConsultClientController implements ActionListener {
         this.consultClientView.getPrenomTextField().addActionListener(this);
         this.consultClientView.getEmailTextField().addActionListener(this);
         this.consultClientView.getTelTextField().addActionListener(this);
-        this.consultClientView.getAddresseTextField().addActionListener(this);
         this.consultClientView.getDateSouscriptionTextField().addActionListener(this);
         this.consultClientView.getPreviousButton().addActionListener(this);
         this.consultClientView.getHomeButton().addActionListener(this);
