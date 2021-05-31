@@ -1,6 +1,9 @@
 package Controller;
 
+import View.AccueilClient;
 import View.ConsultClient;
+import View.Home;
+import View.Window;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +15,6 @@ public class ConsultClientController implements ActionListener {
 
     public ConsultClientController(ConsultClient consultClientView) {
         this.consultClientView = consultClientView;
-
         this.consultClientView.getNomTextField().addActionListener(this);
         this.consultClientView.getPrenomTextField().addActionListener(this);
         this.consultClientView.getEmailTextField().addActionListener(this);
@@ -24,7 +26,11 @@ public class ConsultClientController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if(e.getSource() == this.consultClientView.getPreviousButton()){
+            new AccueilClient((Window) this.consultClientView.getWindow());
+        } else if (e.getSource() == this.consultClientView.getHomeButton()) {
+            new Home((Window) this.consultClientView.getWindow());
+        }
     }
 
     public ConsultClient getConsultClientView() {

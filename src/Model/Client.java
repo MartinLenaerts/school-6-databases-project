@@ -13,6 +13,12 @@ public class Client extends Personne implements BddModel {
     private Assurance[] renouvellements;
     private Connection connection;
 
+    public Client(int ID_personne) {
+        super(ID_personne);
+        this.connection = SingletonConnection.getInstance();
+    }
+
+
     public Client(int ID_personne, String nom, String prenom, String email, String telephone, String login, String password, Adresse adresse) {
         super(ID_personne, nom, prenom, email, telephone, login, password, adresse);
         this.connection = SingletonConnection.getInstance();
@@ -153,6 +159,17 @@ public class Client extends Personne implements BddModel {
             state.setString(5, this.getLogin());
             state.setString(6, this.getPassword());
             state.executeUpdate();
+
+
+            String queryAdresse = "UPDATE adresse SET rue = ?, ville = ? , code_postal = ? WHERE idAdresse = ?";
+            PreparedStatement stateAdresse = this.connection.prepareStatement(queryAdresse,
+                    ResultSet.TYPE_FORWARD_ONLY,
+                    ResultSet.CONCUR_UPDATABLE);
+            stateAdresse.setString(1, this.getAdresse().getRue());
+            stateAdresse.setString(2, this.getAdresse().getVille());
+            stateAdresse.setInt(3, this.getAdresse().getCode_postal());
+            stateAdresse.setInt(3, this.getAdresse().getID_adresse());
+            stateAdresse.executeUpdate();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -165,7 +182,7 @@ public class Client extends Personne implements BddModel {
         try {
             ArrayList<Object> clients = new ArrayList<Object>();
             String query = "SELECT *  FROM client c  , adresse a WHERE c.idAdresse = a.idAdresse ";
-            PreparedStatement state = SingletonConnection.getInstance().prepareStatement(query,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_UPDATABLE);
+            PreparedStatement state = SingletonConnection.getInstance().prepareStatement(query, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
             ResultSet result = state.executeQuery();
             while (result.next()) {
                 clients.add(new Client(
@@ -173,7 +190,7 @@ public class Client extends Personne implements BddModel {
                         result.getString("nom"),
                         result.getString("prenom"),
                         result.getString("email"),
-                        result.getString("telepehone"),
+                        result.getString("telephone"),
                         result.getString("login"),
                         result.getString("password"),
                         new Adresse(result.getInt("idAdresse"), result.getString("rue"), result.getString("ville"), result.getInt("code_postal"))));
@@ -186,4 +203,8 @@ public class Client extends Personne implements BddModel {
     }
 
 
+    @Override
+    public String toString() {
+        return this.getNom() + " " + this.getPrenom();
+    }
 }

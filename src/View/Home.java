@@ -1,5 +1,7 @@
 package View;
 
+import Controller.HomeController;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -27,8 +29,11 @@ public class Home extends JPanel {
     public Home(JFrame window) {
         this.window = window;
         initialize();
-        window.getContentPane().removeAll();
-        window.getContentPane().add(this);
+        this.window.getContentPane().removeAll();
+        this.window.getContentPane().add(this);
+        this.window.revalidate();
+        new HomeController(this);
+
     }
 
     /**

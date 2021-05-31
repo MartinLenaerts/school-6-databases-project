@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class SingletonConnection {
     //Database connection URL
-    private final String url = "jdbc:mysql://localhost:3306/car_rental?useSSL=false";
+    private final String url = "jdbc:mysql://localhost:3306/rentcar";
     //Username
     private final String user = "root";
     //Passowrd, in my case i don t have a password

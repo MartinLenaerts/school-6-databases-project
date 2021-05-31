@@ -26,6 +26,10 @@ public class HomeController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.homeView.getClientButton()) {
             new AccueilClient((Window) this.homeView.getWindow());
+        }else if (e.getSource() == this.homeView.getRessourcesButton()) {
+            new AccueilVehicule((Window) this.homeView.getWindow());
+        }else if (e.getSource() == this.homeView.getDevisLocationButton()) {
+            new AccueilDevis((Window) this.homeView.getWindow());
         }
     }
 }

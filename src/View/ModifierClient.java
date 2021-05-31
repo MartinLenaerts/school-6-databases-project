@@ -10,6 +10,8 @@
 
 package View;
 
+import Model.Client;
+
 import javax.swing.*;
 import java.awt.EventQueue;
 import java.awt.BorderLayout;
@@ -40,6 +42,7 @@ public class ModifierClient extends JPanel{
 	private JButton consultButton;
 	private JButton addButton;
 
+	private Client client;
 	private Window window;
 	
 
@@ -48,6 +51,7 @@ public class ModifierClient extends JPanel{
 	 */
 	public ModifierClient(Window window) {
 		this.setLayout(null);
+		this.client = client;
 		initialize();
 		this.window = window;
 		this.window.getContentPane().removeAll();
@@ -77,11 +81,11 @@ public class ModifierClient extends JPanel{
 		label_9.setBounds(220, 21, 61, 19);
 		this.add(label_9);
 		
-		JButton previousButton = new JButton("<--");
+		previousButton = new JButton("<--");
 		previousButton.setBounds(0, 21, 49, 23);
 		this.add(previousButton);
 		
-		JButton homeButton = new JButton("\u2302");
+		homeButton = new JButton("\u2302");
 		homeButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		homeButton.setBounds(110, 21, 49, 23);
 		this.add(homeButton);
@@ -103,7 +107,7 @@ public class ModifierClient extends JPanel{
 		label_2.setBounds(10, 28, 46, 14);
 		this_1.add(label_2);
 		
-		textNom = new JTextField();
+		textNom = new JTextField(client.getNom());
 		textNom.setColumns(10);
 		textNom.setBounds(60, 25, 156, 20);
 		this_1.add(textNom);
@@ -113,7 +117,7 @@ public class ModifierClient extends JPanel{
 		label_3.setBounds(10, 53, 46, 14);
 		this_1.add(label_3);
 		
-		textPrenom = new JTextField();
+		textPrenom = new JTextField(client.getPrenom());
 		textPrenom.setColumns(10);
 		textPrenom.setBounds(60, 50, 156, 20);
 		this_1.add(textPrenom);
@@ -123,7 +127,7 @@ public class ModifierClient extends JPanel{
 		label_4.setBounds(10, 78, 46, 14);
 		this_1.add(label_4);
 		
-		textEmail = new JTextField();
+		textEmail = new JTextField(client.getEmail());
 		textEmail.setColumns(10);
 		textEmail.setBounds(60, 75, 156, 20);
 		this_1.add(textEmail);
@@ -133,7 +137,7 @@ public class ModifierClient extends JPanel{
 		label_5.setBounds(10, 103, 46, 14);
 		this_1.add(label_5);
 		
-		textTel = new JTextField();
+		textTel = new JTextField(client.getTelephone());
 		textTel.setColumns(10);
 		textTel.setBounds(60, 100, 156, 20);
 		this_1.add(textTel);
@@ -143,17 +147,17 @@ public class ModifierClient extends JPanel{
 		label_6.setBounds(10, 128, 46, 14);
 		this_1.add(label_6);
 		
-		textRue = new JTextField();
+		textRue = new JTextField(client.getAdresse().getRue());
 		textRue.setColumns(10);
 		textRue.setBounds(60, 125, 156, 20);
 		this_1.add(textRue);
 		
-		textVille = new JTextField();
+		textVille = new JTextField(client.getAdresse().getVille());
 		textVille.setColumns(10);
 		textVille.setBounds(60, 150, 156, 20);
 		this_1.add(textVille);
 		
-		textCodePostal = new JTextField();
+		textCodePostal = new JTextField(client.getAdresse().getCode_postal());
 		textCodePostal.setColumns(10);
 		textCodePostal.setBounds(60, 175, 156, 20);
 		this_1.add(textCodePostal);
@@ -191,14 +195,16 @@ public class ModifierClient extends JPanel{
 		this_1.add(textDate);
 		
 		
-		JButton btnValider = new JButton("Valider");
+		btnValider = new JButton("Valider");
 		btnValider.setBounds(155, 323, 89, 23);
 		this_1.add(btnValider);
 		
 		JButton btnRenouveler = new JButton("Renouveler fid\u00E9lit\u00E9");
 		btnRenouveler.setBounds(31, 275, 180, 23);
 		this_1.add(btnRenouveler);
-		
+
+
+		/*
 		JList list = new JList();
 		list.setVisibleRowCount(10);
 		list.setBounds(10, 93, 196, 208);
@@ -215,7 +221,7 @@ public class ModifierClient extends JPanel{
 		
 		JButton addButton = new JButton("Ajouter");
 		addButton.setBounds(10, 375, 89, 23);
-		this.add(addButton);
+		this.add(addButton);*/
 	}
 
 	
@@ -379,5 +385,11 @@ public class ModifierClient extends JPanel{
 		this.window = window;
 	}
 
+	public Client getClient() {
+		return client;
+	}
 
+	public void setClient(Client client) {
+		this.client = client;
+	}
 }

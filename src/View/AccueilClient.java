@@ -10,6 +10,7 @@
 
 package View;
 
+import Controller.AccueilClientController;
 import Model.Client;
 
 import java.awt.EventQueue;
@@ -36,7 +37,7 @@ public class AccueilClient extends JPanel {
     private JButton modifButton;
     private JButton consultButton;
     private JButton addButton;
-
+    private JList<Object> listCLient;
     private Window window;
 
     /**
@@ -49,6 +50,7 @@ public class AccueilClient extends JPanel {
         this.window.getContentPane().removeAll();
         this.window.getContentPane().add(this);
         this.window.revalidate();
+        new AccueilClientController(this);
     }
 
     /**
@@ -78,10 +80,10 @@ public class AccueilClient extends JPanel {
 
 
         clients = Client.getAll().toArray();
-        JList list = new JList(clients);
-        list.setVisibleRowCount(10);
-        list.setBounds(10, 93, 196, 208);
-        this.add(list);
+        listCLient = new JList<Object>(clients);
+        listCLient.setVisibleRowCount(10);
+        listCLient.setBounds(10, 93, 196, 208);
+        this.add(listCLient);
 
         JLabel label_9 = new JLabel("Client");
         label_9.setHorizontalAlignment(SwingConstants.CENTER);
@@ -153,4 +155,20 @@ public class AccueilClient extends JPanel {
         this.window = window;
     }
 
+
+    public Object[] getClients() {
+        return clients;
+    }
+
+    public void setClients(Object[] clients) {
+        this.clients = clients;
+    }
+
+    public JList<Object> getListCLient() {
+        return listCLient;
+    }
+
+    public void setListCLient(JList<Object> listCLient) {
+        this.listCLient = listCLient;
+    }
 }

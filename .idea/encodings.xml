@@ -2,7 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/View/AccueilClient.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/View/AjoutClient.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/View/ConsultClient.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/View/ModifierClient.java" charset="ISO-8859-1" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

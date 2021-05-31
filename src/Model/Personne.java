@@ -12,6 +12,12 @@ public class Personne {
     private String password;
     private Adresse adresse;
 
+    public Personne(int ID_personne) {
+        this.ID_personne = ID_personne;
+
+    }
+
+
     public Personne(int ID_personne, String nom, String prenom, String email, String telephone, String login, String password) {
         this.ID_personne = ID_personne;
         this.nom = nom;
