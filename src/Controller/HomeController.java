@@ -1,8 +1,6 @@
 package Controller;
 
-import View.ConsultClient;
-import View.Home;
-import View.Window;
+import View.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -27,7 +25,7 @@ public class HomeController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.homeView.getClientButton()) {
-            new ConsultClient((Window) this.homeView.getWindow());
+            new AccueilClient((Window) this.homeView.getWindow());
         }
     }
 }

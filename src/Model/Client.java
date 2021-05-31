@@ -78,7 +78,7 @@ public class Client extends Personne implements BddModel {
             stateAdresse.setInt(3, this.getAdresse().getCode_postal());
             int adresseId = stateAdresse.executeUpdate();
 
-            String query = "INSERT INTO adresse VALUES ( ?, ?,?,?,?,?,?)";
+            String query = "INSERT INTO client VALUES ( ?, ?,?,?,?,?,?)";
             PreparedStatement state = this.connection.prepareStatement(query,
                     ResultSet.TYPE_FORWARD_ONLY,
                     ResultSet.CONCUR_UPDATABLE);

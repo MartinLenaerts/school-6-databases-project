@@ -10,7 +10,6 @@ import java.awt.SystemColor;
 
 public class ConsultClient extends JPanel {
     private Client[] clients;
-    private JFrame frame;
     private JTextField nomTextField;
     private JTextField prenomTextField;
     private JTextField emailTextField;
@@ -23,7 +22,6 @@ public class ConsultClient extends JPanel {
     private JTextField textField_9;
     private JButton previousButton;
     private JButton homeButton;
-
     private Window window;
 
     /**
@@ -33,9 +31,9 @@ public class ConsultClient extends JPanel {
         this.setLayout(null);
         initialize();
         this.window = window;
-        window.getContentPane().removeAll();
-        window.getContentPane().add(this);
-        window.revalidate();
+        this.window.getContentPane().removeAll();
+        this.window.getContentPane().add(this);
+        this.window.revalidate();
     }
 
     /**
@@ -205,13 +203,6 @@ public class ConsultClient extends JPanel {
     }
 
 
-    public JFrame getFrame() {
-        return frame;
-    }
-
-    public void setFrame(JFrame frame) {
-        this.frame = frame;
-    }
 
     public JTextField getNomTextField() {
         return nomTextField;
