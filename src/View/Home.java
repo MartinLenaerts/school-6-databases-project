@@ -27,6 +27,7 @@ public class Home extends JPanel {
     public Home(JFrame window) {
         this.window = window;
         initialize();
+        window.getContentPane().removeAll();
         window.getContentPane().add(this);
     }
 

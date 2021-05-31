@@ -28,7 +28,7 @@ public class HomeController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getSource().toString());
         if (e.getSource() == this.homeView.getClientButton()) {
-           new ConsultClient((Window) this.homeView.getWindow(),false);
+            new ConsultClient((Window) this.homeView.getWindow());
         }
     }
 }

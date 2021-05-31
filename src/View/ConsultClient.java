@@ -1,14 +1,9 @@
 package View;
 
-import java.awt.EventQueue;
-
 import javax.swing.*;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.SystemColor;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class ConsultClient extends JPanel{
 
@@ -26,19 +21,17 @@ public class ConsultClient extends JPanel{
 	private JButton previousButton;
 	private JButton homeButton;
 
-	private Window w;
+	private Window window;
 	/**
 	 * Create the application.
 	 */
-	public ConsultClient(Window w,boolean add) {
+	public ConsultClient(Window window) {
 		this.setLayout(null);
 		initialize();
-		this.w = w;
-		if(add)w.getContentPane().add(this);
-		else{
-			w.setContentPane(this);
-			w.revalidate();
-		}
+		this.window = window;
+		window.getContentPane().removeAll();
+		window.getContentPane().add(this);
+		window.revalidate();
 	}
 
 	/**
@@ -315,11 +308,11 @@ public class ConsultClient extends JPanel{
 		this.homeButton = homeButton;
 	}
 
-	public Window getW() {
-		return w;
+	public Window getWindow() {
+		return window;
 	}
 
-	public void setW(Window w) {
-		this.w = w;
+	public void setWindow(Window window) {
+		this.window = window;
 	}
 }
